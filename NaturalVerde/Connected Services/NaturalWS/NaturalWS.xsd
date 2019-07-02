@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://ws/" targetNamespace="http://ws/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="agregarHistorial" type="tns:agregarHistorial" />
+  <xs:element name="agregarHistorialResponse" type="tns:agregarHistorialResponse" />
+  <xs:element name="agregarInsumo" type="tns:agregarInsumo" />
+  <xs:element name="agregarInsumoResponse" type="tns:agregarInsumoResponse" />
+  <xs:element name="buscarHistorial" type="tns:buscarHistorial" />
+  <xs:element name="buscarHistorialResponse" type="tns:buscarHistorialResponse" />
+  <xs:element name="buscarInsumo" type="tns:buscarInsumo" />
+  <xs:element name="buscarInsumoResponse" type="tns:buscarInsumoResponse" />
+  <xs:element name="buscarProyecto" type="tns:buscarProyecto" />
+  <xs:element name="buscarProyectoResponse" type="tns:buscarProyectoResponse" />
+  <xs:element name="buscarTrabajador" type="tns:buscarTrabajador" />
+  <xs:element name="buscarTrabajadorResponse" type="tns:buscarTrabajadorResponse" />
+  <xs:element name="detalleHistorial" type="tns:detalleHistorial" />
+  <xs:element name="detalleHistorialResponse" type="tns:detalleHistorialResponse" />
+  <xs:element name="detalleProyecto" type="tns:detalleProyecto" />
+  <xs:element name="detalleProyectoResponse" type="tns:detalleProyectoResponse" />
+  <xs:element name="detalleSolicitud" type="tns:detalleSolicitud" />
+  <xs:element name="detalleSolicitudResponse" type="tns:detalleSolicitudResponse" />
+  <xs:element name="estadoHistorial" type="tns:estadoHistorial" />
+  <xs:element name="estadoHistorialResponse" type="tns:estadoHistorialResponse" />
+  <xs:element name="estadoProyecto" type="tns:estadoProyecto" />
+  <xs:element name="estadoProyectoResponse" type="tns:estadoProyectoResponse" />
+  <xs:element name="estadoSolicitud" type="tns:estadoSolicitud" />
+  <xs:element name="estadoSolicitudResponse" type="tns:estadoSolicitudResponse" />
+  <xs:element name="faseHistorial" type="tns:faseHistorial" />
+  <xs:element name="faseHistorialResponse" type="tns:faseHistorialResponse" />
+  <xs:element name="fechaProyecto" type="tns:fechaProyecto" />
+  <xs:element name="fechaProyectoResponse" type="tns:fechaProyectoResponse" />
+  <xs:element name="fechaSolicitud" type="tns:fechaSolicitud" />
+  <xs:element name="fechaSolicitudResponse" type="tns:fechaSolicitudResponse" />
+  <xs:element name="listaBanco" type="tns:listaBanco" />
+  <xs:element name="listaBancoResponse" type="tns:listaBancoResponse" />
+  <xs:element name="listaEquipo" type="tns:listaEquipo" />
+  <xs:element name="listaEquipoResponse" type="tns:listaEquipoResponse" />
+  <xs:element name="listaHistorial" type="tns:listaHistorial" />
+  <xs:element name="listaHistorialResponse" type="tns:listaHistorialResponse" />
+  <xs:element name="listaInsumo" type="tns:listaInsumo" />
+  <xs:element name="listaInsumoResponse" type="tns:listaInsumoResponse" />
+  <xs:element name="listaProyecto" type="tns:listaProyecto" />
+  <xs:element name="listaProyectoResponse" type="tns:listaProyectoResponse" />
+  <xs:element name="listaSolicitud" type="tns:listaSolicitud" />
+  <xs:element name="listaSolicitudResponse" type="tns:listaSolicitudResponse" />
+  <xs:element name="listaTrabajador" type="tns:listaTrabajador" />
+  <xs:element name="listaTrabajadorResponse" type="tns:listaTrabajadorResponse" />
+  <xs:element name="loginAdmin" type="tns:loginAdmin" />
+  <xs:element name="loginAdminResponse" type="tns:loginAdminResponse" />
+  <xs:complexType name="agregarInsumo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="insu" type="tns:insumo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insumo">
+    <xs:sequence>
+      <xs:element name="cantidad" type="xs:int" />
+      <xs:element name="codInsumo" type="xs:int" />
+      <xs:element minOccurs="0" name="descripcion" type="xs:string" />
+      <xs:element minOccurs="0" name="nombre_Proyecto" type="xs:string" />
+      <xs:element name="precio" type="xs:int" />
+      <xs:element minOccurs="0" name="tienda" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="agregarInsumoResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="estadoSolicitud">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="soli" type="tns:solicitud" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="solicitud">
+    <xs:sequence>
+      <xs:element name="codSolicitud" type="xs:int" />
+      <xs:element minOccurs="0" name="estado" type="xs:string" />
+      <xs:element minOccurs="0" name="fecha" type="xs:string" />
+      <xs:element minOccurs="0" name="hora" type="xs:string" />
+      <xs:element minOccurs="0" name="nombre_Proyecto" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="estadoSolicitudResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="estadoProyecto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="pro" type="tns:proyecto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="proyecto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="estado" type="xs:string" />
+      <xs:element minOccurs="0" name="nombre_Equipo" type="xs:string" />
+      <xs:element minOccurs="0" name="nombre_Proyecto" type="xs:string" />
+      <xs:element minOccurs="0" name="rutCliente" type="xs:string" />
+      <xs:element minOccurs="0" name="servicio" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="estadoProyectoResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarHistorial">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombreProyecto" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarHistorialResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:historial" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="historial">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="descripcion" type="xs:string" />
+      <xs:element minOccurs="0" name="estado" type="xs:string" />
+      <xs:element name="fase" type="xs:int" />
+      <xs:element minOccurs="0" name="fecha" type="xs:string" />
+      <xs:element minOccurs="0" name="nombre_Proyecto" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listaTrabajador">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listaTrabajadorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:trabajador" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="trabajador">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cargo" type="xs:string" />
+      <xs:element minOccurs="0" name="nombre_Equipo" type="xs:string" />
+      <xs:element minOccurs="0" name="nombre_Trabajador" type="xs:string" />
+      <xs:element minOccurs="0" name="rut_Trabajador" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listaEquipo">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listaEquipoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:equipo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="equipo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombre_Equipo" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="faseHistorial">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombreProyecto" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="faseHistorialResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:historial" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listaBanco">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listaBancoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:banco" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="banco">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombre_Banco" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="fechaProyecto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="fecha" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="fechaProyectoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:solicitud" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="fechaSolicitud">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombreProyecto" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="fechaSolicitudResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:solicitud" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarProyecto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="rutcliente" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarProyectoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:proyecto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="loginAdmin">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="usuario" type="xs:string" />
+      <xs:element minOccurs="0" name="contrasena" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="loginAdminResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarTrabajador">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombreEquipo" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarTrabajadorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:trabajador" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listaInsumo">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listaInsumoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:insumo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="detalleProyecto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombreProyecto" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="detalleProyectoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:proyecto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="detalleHistorial">
+    <xs:sequence>
+      <xs:element name="fase" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="detalleHistorialResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:historial" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarInsumo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombreProyecto" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarInsumoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:insumo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listaHistorial">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listaHistorialResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:historial" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listaSolicitud">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listaSolicitudResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:solicitud" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listaProyecto">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listaProyectoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:proyecto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="agregarHistorial">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="his" type="tns:historial" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="agregarHistorialResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="detalleSolicitud">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombreProyecto" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="detalleSolicitudResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:solicitud" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="estadoHistorial">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="hist" type="tns:historial" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="estadoHistorialResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

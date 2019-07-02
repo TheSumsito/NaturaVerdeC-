@@ -1,0 +1,39 @@
+﻿<Controls:MetroWindow x:Class="NaturalVerde.Vistas.Administrador.menuSoli"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:NaturalVerde.Vistas.Administrador"
+        mc:Ignorable="d"
+        Title="menuSoli" Height="450" Width="800"  WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <!-- BOTON (BUSCAR EQUIPO) -->
+        <Controls:Tile x:Name="btnProyecto" BorderThickness="2" Title="Proyecto Solicitado" FontFamily="Segoe UI Semibold" Foreground="White" Margin="101,95,419.8,196.2" Width="Auto" Height="Auto" BorderBrush="Gray" Click="BtnProyecto_Click">
+            <Controls:Tile.Effect>
+                <DropShadowEffect BlurRadius="3" ShadowDepth="3"/>
+            </Controls:Tile.Effect>
+        </Controls:Tile>
+
+        <!-- BOTON (SOLICITUDES) -->
+
+        <!-- BOTON (MONITOREAR PROYECTO) -->
+        <Controls:Tile x:Name="btnAgendadas" BorderThickness="2" Title="Horas Solicitadas" FontFamily="Segoe UI Semibold" Foreground="White" Margin="421,97,94.8,195.2" Width="Auto" Height="Auto" BorderBrush="Gray" Click="BtnAgendadas_Click">
+            <Controls:Tile.Effect>
+                <DropShadowEffect BlurRadius="3" ShadowDepth="3"/>
+            </Controls:Tile.Effect>
+        </Controls:Tile>
+
+        <!-- BOTON (CERRAR SESION) -->
+        <Controls:Tile x:Name="btnVolver" BorderThickness="2" Title="Volver" FontFamily="Segoe UI Semibold" Foreground="White" Margin="605,255,98.6,83" Width="Auto" Height="Auto" BorderBrush="Gray" Click="BtnVolver_Click">
+            <Controls:Tile.Effect>
+                <DropShadowEffect BlurRadius="3" ShadowDepth="3"/>
+            </Controls:Tile.Effect>
+        </Controls:Tile>
+
+        <!-- NOMBRE EMPRESA-->
+        <Label x:Name="lblEmpresa" Content="Reboot Software" HorizontalAlignment="Left" Margin="273,349,0,0" VerticalAlignment="Top" FontFamily="Harlow Solid Italic" FontSize="30" Height="47" Width="212"/>
+    </Grid>
+</Controls:MetroWindow>

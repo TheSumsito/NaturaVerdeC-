@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://ws/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="NaturalWS" targetNamespace="http://ws/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/NaturalVerdeWS/NaturalWS?xsd=1" namespace="http://ws/" />
+    </xsd:schema>
+  </types>
+  <message name="estadoSolicitud">
+    <part name="parameters" element="tns:estadoSolicitud" />
+  </message>
+  <message name="estadoSolicitudResponse">
+    <part name="parameters" element="tns:estadoSolicitudResponse" />
+  </message>
+  <message name="buscarHistorial">
+    <part name="parameters" element="tns:buscarHistorial" />
+  </message>
+  <message name="buscarHistorialResponse">
+    <part name="parameters" element="tns:buscarHistorialResponse" />
+  </message>
+  <message name="buscarInsumo">
+    <part name="parameters" element="tns:buscarInsumo" />
+  </message>
+  <message name="buscarInsumoResponse">
+    <part name="parameters" element="tns:buscarInsumoResponse" />
+  </message>
+  <message name="fechaSolicitud">
+    <part name="parameters" element="tns:fechaSolicitud" />
+  </message>
+  <message name="fechaSolicitudResponse">
+    <part name="parameters" element="tns:fechaSolicitudResponse" />
+  </message>
+  <message name="buscarProyecto">
+    <part name="parameters" element="tns:buscarProyecto" />
+  </message>
+  <message name="buscarProyectoResponse">
+    <part name="parameters" element="tns:buscarProyectoResponse" />
+  </message>
+  <message name="estadoProyecto">
+    <part name="parameters" element="tns:estadoProyecto" />
+  </message>
+  <message name="estadoProyectoResponse">
+    <part name="parameters" element="tns:estadoProyectoResponse" />
+  </message>
+  <message name="detalleProyecto">
+    <part name="parameters" element="tns:detalleProyecto" />
+  </message>
+  <message name="detalleProyectoResponse">
+    <part name="parameters" element="tns:detalleProyectoResponse" />
+  </message>
+  <message name="loginAdmin">
+    <part name="parameters" element="tns:loginAdmin" />
+  </message>
+  <message name="loginAdminResponse">
+    <part name="parameters" element="tns:loginAdminResponse" />
+  </message>
+  <message name="fechaProyecto">
+    <part name="parameters" element="tns:fechaProyecto" />
+  </message>
+  <message name="fechaProyectoResponse">
+    <part name="parameters" element="tns:fechaProyectoResponse" />
+  </message>
+  <message name="listaHistorial">
+    <part name="parameters" element="tns:listaHistorial" />
+  </message>
+  <message name="listaHistorialResponse">
+    <part name="parameters" element="tns:listaHistorialResponse" />
+  </message>
+  <message name="listaTrabajador">
+    <part name="parameters" element="tns:listaTrabajador" />
+  </message>
+  <message name="listaTrabajadorResponse">
+    <part name="parameters" element="tns:listaTrabajadorResponse" />
+  </message>
+  <message name="buscarTrabajador">
+    <part name="parameters" element="tns:buscarTrabajador" />
+  </message>
+  <message name="buscarTrabajadorResponse">
+    <part name="parameters" element="tns:buscarTrabajadorResponse" />
+  </message>
+  <message name="detalleHistorial">
+    <part name="parameters" element="tns:detalleHistorial" />
+  </message>
+  <message name="detalleHistorialResponse">
+    <part name="parameters" element="tns:detalleHistorialResponse" />
+  </message>
+  <message name="listaSolicitud">
+    <part name="parameters" element="tns:listaSolicitud" />
+  </message>
+  <message name="listaSolicitudResponse">
+    <part name="parameters" element="tns:listaSolicitudResponse" />
+  </message>
+  <message name="listaProyecto">
+    <part name="parameters" element="tns:listaProyecto" />
+  </message>
+  <message name="listaProyectoResponse">
+    <part name="parameters" element="tns:listaProyectoResponse" />
+  </message>
+  <message name="agregarInsumo">
+    <part name="parameters" element="tns:agregarInsumo" />
+  </message>
+  <message name="agregarInsumoResponse">
+    <part name="parameters" element="tns:agregarInsumoResponse" />
+  </message>
+  <message name="listaBanco">
+    <part name="parameters" element="tns:listaBanco" />
+  </message>
+  <message name="listaBancoResponse">
+    <part name="parameters" element="tns:listaBancoResponse" />
+  </message>
+  <message name="detalleSolicitud">
+    <part name="parameters" element="tns:detalleSolicitud" />
+  </message>
+  <message name="detalleSolicitudResponse">
+    <part name="parameters" element="tns:detalleSolicitudResponse" />
+  </message>
+  <message name="faseHistorial">
+    <part name="parameters" element="tns:faseHistorial" />
+  </message>
+  <message name="faseHistorialResponse">
+    <part name="parameters" element="tns:faseHistorialResponse" />
+  </message>
+  <message name="agregarHistorial">
+    <part name="parameters" element="tns:agregarHistorial" />
+  </message>
+  <message name="agregarHistorialResponse">
+    <part name="parameters" element="tns:agregarHistorialResponse" />
+  </message>
+  <message name="listaInsumo">
+    <part name="parameters" element="tns:listaInsumo" />
+  </message>
+  <message name="listaInsumoResponse">
+    <part name="parameters" element="tns:listaInsumoResponse" />
+  </message>
+  <message name="estadoHistorial">
+    <part name="parameters" element="tns:estadoHistorial" />
+  </message>
+  <message name="estadoHistorialResponse">
+    <part name="parameters" element="tns:estadoHistorialResponse" />
+  </message>
+  <message name="listaEquipo">
+    <part name="parameters" element="tns:listaEquipo" />
+  </message>
+  <message name="listaEquipoResponse">
+    <part name="parameters" element="tns:listaEquipoResponse" />
+  </message>
+  <portType name="NaturalWS">
+    <operation name="estadoSolicitud">
+      <input wsam:Action="http://ws/NaturalWS/estadoSolicitudRequest" message="tns:estadoSolicitud" />
+      <output wsam:Action="http://ws/NaturalWS/estadoSolicitudResponse" message="tns:estadoSolicitudResponse" />
+    </operation>
+    <operation name="buscarHistorial">
+      <input wsam:Action="http://ws/NaturalWS/buscarHistorialRequest" message="tns:buscarHistorial" />
+      <output wsam:Action="http://ws/NaturalWS/buscarHistorialResponse" message="tns:buscarHistorialResponse" />
+    </operation>
+    <operation name="buscarInsumo">
+      <input wsam:Action="http://ws/NaturalWS/buscarInsumoRequest" message="tns:buscarInsumo" />
+      <output wsam:Action="http://ws/NaturalWS/buscarInsumoResponse" message="tns:buscarInsumoResponse" />
+    </operation>
+    <operation name="fechaSolicitud">
+      <input wsam:Action="http://ws/NaturalWS/fechaSolicitudRequest" message="tns:fechaSolicitud" />
+      <output wsam:Action="http://ws/NaturalWS/fechaSolicitudResponse" message="tns:fechaSolicitudResponse" />
+    </operation>
+    <operation name="buscarProyecto">
+      <input wsam:Action="http://ws/NaturalWS/buscarProyectoRequest" message="tns:buscarProyecto" />
+      <output wsam:Action="http://ws/NaturalWS/buscarProyectoResponse" message="tns:buscarProyectoResponse" />
+    </operation>
+    <operation name="estadoProyecto">
+      <input wsam:Action="http://ws/NaturalWS/estadoProyectoRequest" message="tns:estadoProyecto" />
+      <output wsam:Action="http://ws/NaturalWS/estadoProyectoResponse" message="tns:estadoProyectoResponse" />
+    </operation>
+    <operation name="detalleProyecto">
+      <input wsam:Action="http://ws/NaturalWS/detalleProyectoRequest" message="tns:detalleProyecto" />
+      <output wsam:Action="http://ws/NaturalWS/detalleProyectoResponse" message="tns:detalleProyectoResponse" />
+    </operation>
+    <operation name="loginAdmin">
+      <input wsam:Action="http://ws/NaturalWS/loginAdminRequest" message="tns:loginAdmin" />
+      <output wsam:Action="http://ws/NaturalWS/loginAdminResponse" message="tns:loginAdminResponse" />
+    </operation>
+    <operation name="fechaProyecto">
+      <input wsam:Action="http://ws/NaturalWS/fechaProyectoRequest" message="tns:fechaProyecto" />
+      <output wsam:Action="http://ws/NaturalWS/fechaProyectoResponse" message="tns:fechaProyectoResponse" />
+    </operation>
+    <operation name="listaHistorial">
+      <input wsam:Action="http://ws/NaturalWS/listaHistorialRequest" message="tns:listaHistorial" />
+      <output wsam:Action="http://ws/NaturalWS/listaHistorialResponse" message="tns:listaHistorialResponse" />
+    </operation>
+    <operation name="listaTrabajador">
+      <input wsam:Action="http://ws/NaturalWS/listaTrabajadorRequest" message="tns:listaTrabajador" />
+      <output wsam:Action="http://ws/NaturalWS/listaTrabajadorResponse" message="tns:listaTrabajadorResponse" />
+    </operation>
+    <operation name="buscarTrabajador">
+      <input wsam:Action="http://ws/NaturalWS/buscarTrabajadorRequest" message="tns:buscarTrabajador" />
+      <output wsam:Action="http://ws/NaturalWS/buscarTrabajadorResponse" message="tns:buscarTrabajadorResponse" />
+    </operation>
+    <operation name="detalleHistorial">
+      <input wsam:Action="http://ws/NaturalWS/detalleHistorialRequest" message="tns:detalleHistorial" />
+      <output wsam:Action="http://ws/NaturalWS/detalleHistorialResponse" message="tns:detalleHistorialResponse" />
+    </operation>
+    <operation name="listaSolicitud">
+      <input wsam:Action="http://ws/NaturalWS/listaSolicitudRequest" message="tns:listaSolicitud" />
+      <output wsam:Action="http://ws/NaturalWS/listaSolicitudResponse" message="tns:listaSolicitudResponse" />
+    </operation>
+    <operation name="listaProyecto">
+      <input wsam:Action="http://ws/NaturalWS/listaProyectoRequest" message="tns:listaProyecto" />
+      <output wsam:Action="http://ws/NaturalWS/listaProyectoResponse" message="tns:listaProyectoResponse" />
+    </operation>
+    <operation name="agregarInsumo">
+      <input wsam:Action="http://ws/NaturalWS/agregarInsumoRequest" message="tns:agregarInsumo" />
+      <output wsam:Action="http://ws/NaturalWS/agregarInsumoResponse" message="tns:agregarInsumoResponse" />
+    </operation>
+    <operation name="listaBanco">
+      <input wsam:Action="http://ws/NaturalWS/listaBancoRequest" message="tns:listaBanco" />
+      <output wsam:Action="http://ws/NaturalWS/listaBancoResponse" message="tns:listaBancoResponse" />
+    </operation>
+    <operation name="detalleSolicitud">
+      <input wsam:Action="http://ws/NaturalWS/detalleSolicitudRequest" message="tns:detalleSolicitud" />
+      <output wsam:Action="http://ws/NaturalWS/detalleSolicitudResponse" message="tns:detalleSolicitudResponse" />
+    </operation>
+    <operation name="faseHistorial">
+      <input wsam:Action="http://ws/NaturalWS/faseHistorialRequest" message="tns:faseHistorial" />
+      <output wsam:Action="http://ws/NaturalWS/faseHistorialResponse" message="tns:faseHistorialResponse" />
+    </operation>
+    <operation name="agregarHistorial">
+      <input wsam:Action="http://ws/NaturalWS/agregarHistorialRequest" message="tns:agregarHistorial" />
+      <output wsam:Action="http://ws/NaturalWS/agregarHistorialResponse" message="tns:agregarHistorialResponse" />
+    </operation>
+    <operation name="listaInsumo">
+      <input wsam:Action="http://ws/NaturalWS/listaInsumoRequest" message="tns:listaInsumo" />
+      <output wsam:Action="http://ws/NaturalWS/listaInsumoResponse" message="tns:listaInsumoResponse" />
+    </operation>
+    <operation name="estadoHistorial">
+      <input wsam:Action="http://ws/NaturalWS/estadoHistorialRequest" message="tns:estadoHistorial" />
+      <output wsam:Action="http://ws/NaturalWS/estadoHistorialResponse" message="tns:estadoHistorialResponse" />
+    </operation>
+    <operation name="listaEquipo">
+      <input wsam:Action="http://ws/NaturalWS/listaEquipoRequest" message="tns:listaEquipo" />
+      <output wsam:Action="http://ws/NaturalWS/listaEquipoResponse" message="tns:listaEquipoResponse" />
+    </operation>
+  </portType>
+  <binding name="NaturalWSPortBinding" type="tns:NaturalWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="estadoSolicitud">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="buscarHistorial">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="buscarInsumo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="fechaSolicitud">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="buscarProyecto">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="estadoProyecto">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="detalleProyecto">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="loginAdmin">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="fechaProyecto">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listaHistorial">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listaTrabajador">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="buscarTrabajador">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="detalleHistorial">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listaSolicitud">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listaProyecto">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="agregarInsumo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listaBanco">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="detalleSolicitud">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="faseHistorial">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="agregarHistorial">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listaInsumo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="estadoHistorial">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listaEquipo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="NaturalWS">
+    <port name="NaturalWSPort" binding="tns:NaturalWSPortBinding">
+      <soap:address location="http://localhost:8080/NaturalVerdeWS/NaturalWS" />
+    </port>
+  </service>
+</definitions>

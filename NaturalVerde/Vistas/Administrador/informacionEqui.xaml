@@ -1,0 +1,50 @@
+﻿<Controls:MetroWindow x:Class="NaturalVerde.Vistas.Administrador.informacionEqui"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:NaturalVerde.Vistas.Administrador"
+        mc:Ignorable="d"
+        Title="Informacion del Equipo - Administrador" Height="701.4" Width="829.634" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <!-- TITULO -->
+        <Label x:Name="lblTitulo" Content="Informacion sobre Equipo a Terreno" HorizontalAlignment="Left" Margin="80,10,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Black" FontSize="36"/>
+
+        <!-- NOMBRE PERSONAL -->
+        <Label x:Name="lblNombre" Content="Nombre Tecnico" HorizontalAlignment="Left" Margin="80,331,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.088,0.739" FontFamily="Segoe UI Semibold" FontSize="20" Height="48"/>
+        <ListBox x:Name="lsNombre" HorizontalAlignment="Left" Height="187" Margin="80,386,0,0" VerticalAlignment="Top" Width="300"/>
+
+        <!-- CARGO -->
+        <Label x:Name="lblCargo" Content="Cargo" HorizontalAlignment="Left" Margin="495,331,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.453,0.08" FontFamily="Segoe UI Semibold" FontSize="20" Height="48"/>
+        <ListBox x:Name="lsCargo" HorizontalAlignment="Left" Height="187" Margin="495,386,0,0" VerticalAlignment="Top" Width="223"/>
+
+        <!-- NOMBRE EQUIPO-->
+        <Label x:Name="lblEquipo" Content="Equipo a Terreno" HorizontalAlignment="Left" Margin="79,255,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Semibold" FontSize="20"/>
+        <TextBox x:Name="txtEquipo" HorizontalAlignment="Left" Height="23" Margin="80,300,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180" IsEnabled="False"/>
+
+        <!-- NOMBRE PROYECTO -->
+
+        <!-- BOTON VOLVER -->
+        <Controls:Tile x:Name="btnVolver" BorderThickness="2" Title="Volver" FontFamily="Segoe UI Semibold" Foreground="White" Margin="652,600,104.2,26" Width="Auto" Height="Auto" BorderBrush="Gray" Click="BtnVolver_Click">
+            <Controls:Tile.Effect>
+                <DropShadowEffect BlurRadius="3" ShadowDepth="3"/>
+            </Controls:Tile.Effect>
+        </Controls:Tile>
+
+        <!-- NOMBRE EMPRESA -->
+        <Label x:Name="lblEmpresa" Content="Reboot Software" HorizontalAlignment="Left" Margin="293,599,0,0" VerticalAlignment="Top" FontFamily="Harlow Solid Italic" FontSize="30" Height="47" Width="212"/>
+        <Label x:Name="lblProyecto" Content="Seleccionar Proyecto" HorizontalAlignment="Left" Margin="299,166,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Semibold" FontSize="20" Width="212" RenderTransformOrigin="0.499,-0.217"/>
+        <ComboBox x:Name="cboProyecto" HorizontalAlignment="Left" Margin="300,208,0,0" VerticalAlignment="Top" Width="189"/>
+        <Label x:Name="lblRut" Content="Ingrese Rut del Cliente" HorizontalAlignment="Left" Margin="295,93,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Semibold" FontSize="20"/>
+        <TextBox x:Name="txtRut" TextAlignment="Center" HorizontalAlignment="Left" Height="23" Margin="300,135,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="189"/>
+        <Button x:Name="btnComprobar" Content="Comprobar" HorizontalAlignment="Left" Margin="494,132,0,0" VerticalAlignment="Top" Width="110" Click="BtnComprobar_Click"/>
+        <Button x:Name="btnSeleccionar" Content="Seleccionar" HorizontalAlignment="Left" Margin="495,205,0,0" VerticalAlignment="Top" Width="110" Click="BtnSeleccionar_Click"/>
+        <Button x:Name="btnCargar" Content="Cargar Datos" HorizontalAlignment="Left" Margin="280,297,0,0" VerticalAlignment="Top" Width="120" Click="BtnCargar_Click" RenderTransformOrigin="0.708,0.632"/>
+
+
+
+    </Grid>
+</Controls:MetroWindow>
