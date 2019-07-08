@@ -8,7 +8,7 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:NaturalVerde.Vistas.Administrador"
         mc:Ignorable="d"
-        Title="menuSoli" Height="450" Width="800"  WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Menu - Mostrar Solicitudes" Height="450" Width="800"  WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <!-- BOTON (BUSCAR EQUIPO) -->
         <Controls:Tile x:Name="btnProyecto" BorderThickness="2" Title="Proyecto Solicitado" FontFamily="Segoe UI Semibold" Foreground="White" Margin="101,95,419.8,196.2" Width="Auto" Height="Auto" BorderBrush="Gray" Click="BtnProyecto_Click">

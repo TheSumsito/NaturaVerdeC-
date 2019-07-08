@@ -8,7 +8,7 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:NaturalVerde.Vistas.Administrador"
         mc:Ignorable="d"
-        Title="horaSoli" Height="571.4" Width="890" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Solicitudes a Terreno" Height="571.4" Width="890" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <!-- TITULO -->
         <Label x:Name="lblTitulo" Content="Horas Solicitadas" HorizontalAlignment="Left" Margin="298,11,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Black" FontSize="36"/>

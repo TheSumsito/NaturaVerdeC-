@@ -26,6 +26,7 @@ namespace NaturalVerde.Vistas.Administrador
         public insumosPro()
         {
             InitializeComponent();
+            txtTotal.IsReadOnly = true;
         }
 
         private void BtnVolver_Click(object sender, RoutedEventArgs e)
@@ -40,7 +41,7 @@ namespace NaturalVerde.Vistas.Administrador
             agregarInsumo agregar = new agregarInsumo();
             NaturalWSClient cliente = new NaturalWSClient();
 
-            String rutcliente = txtRut.Text;
+            String rutcliente = txtRut.Text.ToUpper();
             List<proyecto> proyecto = null;
 
             try
@@ -51,7 +52,7 @@ namespace NaturalVerde.Vistas.Administrador
                 {
                     agregar.cboProyecto.Items.Add(item.nombre_Proyecto);
                 }
-                agregar.txtRut.Text = txtRut.Text;
+                agregar.txtRut.Text = txtRut.Text.ToUpper();
                 agregar.Show();
                 this.Close();
             }
@@ -64,25 +65,32 @@ namespace NaturalVerde.Vistas.Administrador
         private async void BtnComprobar_Click(object sender, RoutedEventArgs e)
         {
             NaturalWSClient cliente = new NaturalWSClient();
-            String rutcliente = txtRut.Text;
+            String rutcliente = txtRut.Text.ToUpper();
 
             List<proyecto> proyecto = null;
 
             try
             {
-                lsNumero.Items.Clear();
-                lsDescripcion.Items.Clear();
-                lsTienda.Items.Clear();
-                lsCantidad.Items.Clear();
-                lsPrecioUni.Items.Clear();
-                lsPrecioTotal.Items.Clear();
-                cboProyecto.Items.Clear();
-                proyecto = cliente.buscarProyecto(rutcliente).ToList();
-                foreach (var item in proyecto)
+                if (txtRut.Text.Equals(""))
                 {
-                    cboProyecto.Items.Add(item.nombre_Proyecto);
+                    await this.ShowMessageAsync("Error", "Porfavor Ingrese Rut del Cliente");
                 }
-                await this.ShowMessageAsync("Exito", "Proyectos Encontrados");
+                else
+                {
+                    lsNumero.Items.Clear();
+                    lsDescripcion.Items.Clear();
+                    lsTienda.Items.Clear();
+                    lsCantidad.Items.Clear();
+                    lsPrecioUni.Items.Clear();
+                    lsPrecioTotal.Items.Clear();
+                    cboProyecto.Items.Clear();
+                    proyecto = cliente.buscarProyecto(rutcliente).ToList();
+                    foreach (var item in proyecto)
+                    {
+                        cboProyecto.Items.Add(item.nombre_Proyecto);
+                    }
+                    await this.ShowMessageAsync("Exito", "Proyectos Encontrados");
+                }
             }
             catch
             {
@@ -99,27 +107,44 @@ namespace NaturalVerde.Vistas.Administrador
         private async void BtnSeleccionar_Click(object sender, RoutedEventArgs e)
         {
             NaturalWSClient cliente = new NaturalWSClient();
-            String nombreProyecto = cboProyecto.Text;
+            String nombreProyecto = cboProyecto.Text.ToUpper();
 
             List<insumo> insumo = null;
+            double suma = 0;
 
             try
             {
-                lsNumero.Items.Clear();
-                lsDescripcion.Items.Clear();
-                lsTienda.Items.Clear();
-                lsCantidad.Items.Clear();
-                lsPrecioUni.Items.Clear();
-                lsPrecioTotal.Items.Clear();
-                insumo = cliente.buscarInsumo(nombreProyecto).ToList();
-                foreach (var item in insumo)
+                if (cboProyecto.Text.Equals(""))
                 {
-                    lsNumero.Items.Add(item.codInsumo);
-                    lsDescripcion.Items.Add(item.descripcion);
-                    lsTienda.Items.Add(item.tienda);
-                    lsCantidad.Items.Add(item.cantidad);
-                    lsPrecioUni.Items.Add(item.precio);
-                    lsPrecioTotal.Items.Add(item.precio * item.cantidad);
+                    await this.ShowMessageAsync("Error", "Porfavor Seleccione un Proyecto");
+                }
+                else
+                {
+                    lsNumero.Items.Clear();
+                    lsDescripcion.Items.Clear();
+                    lsTienda.Items.Clear();
+                    lsCantidad.Items.Clear();
+                    lsPrecioUni.Items.Clear();
+                    lsPrecioTotal.Items.Clear();
+                    insumo = cliente.buscarInsumo(nombreProyecto).ToList();
+                    foreach (var item in insumo)
+                    {
+                        lsNumero.Items.Add(item.codInsumo);
+                        lsDescripcion.Items.Add(item.descripcion);
+                        lsTienda.Items.Add(item.tienda);
+                        lsCantidad.Items.Add(item.cantidad);
+                        lsPrecioUni.Items.Add(item.precio);
+                        lsPrecioTotal.Items.Add(item.precio * item.cantidad);
+                    }
+
+                    foreach (object item in lsPrecioTotal.Items)
+                    {
+                        double val = Convert.ToDouble(item);
+
+                        suma += val;
+                        txtTotal.Text = "$ " + suma.ToString();
+
+                    }
                 }
             }
             catch

@@ -32,67 +32,38 @@ namespace NaturalVerde
         {
             NaturalWSClient cliente = new NaturalWSClient();
 
-            String user = txtUser.Text;
-            String pass = txtPass.Password;
+            String user = txtUser.Text.ToUpper();
+            String pass = txtPass.Password.ToUpper();
 
-            bool validar = false;
             try
-            {   
-                if (cliente.loginAdmin(user, pass))
+            {
+                if (txtUser.Text.Equals(""))
                 {
-                       Vistas.Administrador.menu menu = new Vistas.Administrador.menu();
-                       menu.Show();
-                    this.Close();
+                    await this.ShowMessageAsync("Error", "Porfavor Ingrese su Usuario");
+                }
+                else if (txtPass.Password.Equals(""))
+                {
+                    await this.ShowMessageAsync("Error", "Porfavir Ingrese su Contraseña");
+                }
+                else
+                {
+                    if (cliente.loginAdmin(user, pass))
+                    {
+                        await this.ShowMessageAsync("Exito", "BIENVENIDO " + user);
+                        Vistas.Administrador.menu menu = new Vistas.Administrador.menu();
+                        menu.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        await this.ShowMessageAsync("Error", "Usuario o Contraseña Incorrecta");
+                    }
                 }
             }
             catch
             {
-                await this.ShowMessageAsync("Error", "" + validar);
+                await this.ShowMessageAsync("Error", "No se pudo iniciar");
             }
-
-            await this.ShowMessageAsync("exito", ""+validar);
-
-            //if (validar==true)
-            //{
-            //    await this.ShowMessageAsync("Exito", "Bienvenido");
-            //    Vistas.Administrador.menu menu = new Vistas.Administrador.menu();
-            //    menu.Show();
-            //    this.Close();
-            //}
-            //else if(validar==false)
-            //{
-            //    await this.ShowMessageAsync("Error", "Usuario ingresado no existe");
-            //}
-
-            
-
-
-
-
-            //Si es que es Usuario Normal
-            //if(user=="user" && pass == "123")
-            //{
-            //    await this.ShowMessageAsync("Exito", "Bienvenido " + user);
-            //    //Llamamos a la vista Menu Cliente
-            //    Vistas.Administrador.menu menu = new Vistas.Administrador.menu();
-            //    menu.Show();
-            //    this.Close();
-            //}
-
-            ////Si es que es Usuario administrador
-            //else if(user=="admin" && pass == "123")
-            //{
-            //    await this.ShowMessageAsync("Exito", "Bienvenido " + user);
-            //    //Llamamos a la vista Menu Administrador
-            //    Vistas.Administrador.menu menu = new Vistas.Administrador.menu();
-            //    menu.Show();
-            //    this.Close();
-            //}
-            //else
-            //{
-            //    await this.ShowMessageAsync("Error", "Usuario o Contraseña incorrecta");
-            //}
-
 
         }
     }

@@ -32,6 +32,7 @@ namespace NaturalVerde.Vistas.Administrador
             txtCodigo.IsEnabled = false;
             txtHora.IsEnabled = false;
             txtRut.IsEnabled = false;
+            cboEstado.IsEnabled = false;
         }
 
         private void BtnVolver_Click(object sender, RoutedEventArgs e)
@@ -45,19 +46,30 @@ namespace NaturalVerde.Vistas.Administrador
         {
             NaturalWSClient cliente = new NaturalWSClient();
             solicitud soli = new solicitud();
-            soli.codSolicitud = int.Parse(txtCodigo.Text);
-            soli.hora = txtHora.Text;
-            soli.fecha = cboFecha.Text;
-            soli.estado = cboEstado.Text;
-            soli.nombre_Proyecto = cboProyecto.Text;
 
-            if (cliente.estadoSolicitud(soli))
+            try
             {
-                await this.ShowMessageAsync("Exito", "HORA AGENDADA CAMBIO ESTADO A " + soli.estado);
+                soli.codSolicitud = int.Parse(txtCodigo.Text);
+                soli.hora = txtHora.Text;
+                soli.fecha = cboFecha.Text;
+                soli.estado = cboEstado.Text;
+                soli.nombre_Proyecto = cboProyecto.Text;
+
+                if (cliente.estadoSolicitud(soli))
+                {
+                    await this.ShowMessageAsync("Exito", "HORA AGENDADA CAMBIO ESTADO A " + soli.estado);
+                    horaSoli hora = new horaSoli();
+                    hora.Show();
+                    this.Close();
+                }
+                else
+                {
+                    await this.ShowMessageAsync("Error", "No se pudo cambiar Estado");
+                }
             }
-            else
+            catch
             {
-                await this.ShowMessageAsync("Error", "No se pudo cambiar Estado");
+                await this.ShowMessageAsync("Error", "Hay Campos que no ah Seleccionado, Porfavor Rellene los Campos Vacios");
             }
         }
 
@@ -68,33 +80,60 @@ namespace NaturalVerde.Vistas.Administrador
             List<solicitud> fecha = null;
             try
             {
-                fecha = cliente.fechaSolicitud(NombreProyecto).ToList();
-
-                foreach (var item in fecha)
+                if (cboProyecto.Text.Equals(""))
                 {
-                    cboFecha.Items.Add(item.fecha);
+                    await this.ShowMessageAsync("Error", "Porfavor Seleccione un Proyeto");
                 }
+                else
+                {
+                    fecha = cliente.fechaSolicitud(NombreProyecto).ToList();
 
-                await this.ShowMessageAsync("Exito", "Fechas Cargadas");
+                    foreach (var item in fecha)
+                    {
+                        cboFecha.Items.Add(item.fecha);
+                    }
+
+                    await this.ShowMessageAsync("Exito", "Fechas Cargadas");
+                }
             }
             catch
             {
-                await this.ShowMessageAsync("Error", "Fecha Incorrecta");
+                await this.ShowMessageAsync("Error", "No Existen Fechas a Terreno");
             }
         }
 
-        private void BtnCargar_Click(object sender, RoutedEventArgs e)
+        private async void BtnCargar_Click(object sender, RoutedEventArgs e)
         {
             NaturalWSClient cliente = new NaturalWSClient();
             String Fecha = cboFecha.Text;
 
-            List<solicitud> solicitud = cliente.fechaProyecto(Fecha).ToList();
+            List<solicitud> solicitud = null;
 
-            foreach (var item in solicitud)
+            try
             {
-                txtCodigo.Text = item.codSolicitud.ToString();
-                txtHora.Text = item.hora;
-                cboEstado.Text = item.estado;
+                if (cboFecha.Text.Equals(""))
+                {
+                    await this.ShowMessageAsync("Error", "Porfavor Seleccione una Fecha");
+                }
+                else if (cboProyecto.Text.Equals(""))
+                {
+                    await this.ShowMessageAsync("Error", "Porfavor Seleccione un Proyecto");
+                }
+                else
+                {
+                    cboEstado.IsEnabled = true;
+                    solicitud = cliente.fechaProyecto(Fecha).ToList();
+                    foreach (var item in solicitud)
+                    {
+                        txtCodigo.Text = item.codSolicitud.ToString();
+                        txtHora.Text = item.hora;
+                        cboEstado.Text = item.estado;
+                    }
+                }
+            }
+            catch
+            {
+                await this.ShowMessageAsync("Error", "Fecha Incorrecta");
             }
 
         }

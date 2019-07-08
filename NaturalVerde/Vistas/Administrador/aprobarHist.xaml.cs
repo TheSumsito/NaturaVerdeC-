@@ -38,13 +38,21 @@ namespace NaturalVerde.Vistas.Administrador
 
             try
             {
-                cboProyecto.Items.Clear();
-                proyecto = cliente.buscarProyecto(RutCliente).ToList();
-                foreach (var item in proyecto)
+                if (txtRut.Text.Equals(""))
                 {
-                    cboProyecto.Items.Add(item.nombre_Proyecto);
+                    await this.ShowMessageAsync("Error", "Porfavor, Ingrese Rut del Cliente");
                 }
-                await this.ShowMessageAsync("Exito", "Proyectos Encontrados");
+                else
+                {
+                    cboProyecto.Items.Clear();
+                    proyecto = cliente.buscarProyecto(RutCliente).ToList();
+                    foreach (var item in proyecto)
+                    {
+                        cboProyecto.Items.Add(item.nombre_Proyecto);
+                    }
+                    await this.ShowMessageAsync("Exito", "Proyectos Encontrados");
+                }
+
             }
             catch
             {
@@ -61,16 +69,23 @@ namespace NaturalVerde.Vistas.Administrador
 
             try
             {
-                cboFase.Items.Clear();
-                txtDescripcion.Text = "";
-                txtFecha.Text = "";
-                cboEstado.Items.Clear();
-                historial = cliente.faseHistorial(nombreProyecto).ToList();
-                foreach (var item in historial)
+                if (cboProyecto.Text.Equals(""))
                 {
-                    cboFase.Items.Add(item.fase);
+                    await this.ShowMessageAsync("Erro", "Porfavor Seleccione un Proyecto");
                 }
-                await this.ShowMessageAsync("Exito", "Fases del proyecto Encontrado");
+                else
+                {
+                    cboFase.Items.Clear();
+                    txtDescripcion.Text = "";
+                    txtFecha.Text = "";
+                    cboEstado.Items.Clear();
+                    historial = cliente.faseHistorial(nombreProyecto).ToList();
+                    foreach (var item in historial)
+                    {
+                        cboFase.Items.Add(item.fase);
+                    }
+                    await this.ShowMessageAsync("Exito", "Fases del proyecto Encontrado");
+                }
             }
             catch
             {
@@ -88,17 +103,24 @@ namespace NaturalVerde.Vistas.Administrador
 
             try
             {
-                cboFase.Text = "";
-                txtDescripcion.Text = "";
-                txtFecha.Text = "";
-                cboEstado.Items.Clear();
-                historial = cliente.detalleHistorial(Fase).ToList();
-                foreach (var item in historial)
+                if (cboFase.Text.Equals(""))
                 {
-                    txtDescripcion.Text = item.descripcion;
-                    txtFecha.Text = item.fecha;
-                    cboEstado.Items.Add("EN PROCESO");
-                    cboEstado.Items.Add("TERMINADO");
+                    await this.ShowMessageAsync("Error", "Porfavor Seleccione una Fase");
+                }
+                else
+                {
+                    cboFase.Text = "";
+                    txtDescripcion.Text = "";
+                    txtFecha.Text = "";
+                    cboEstado.Items.Clear();
+                    historial = cliente.detalleHistorial(Fase).ToList();
+                    foreach (var item in historial)
+                    {
+                        txtDescripcion.Text = item.descripcion;
+                        txtFecha.Text = item.fecha;
+                        cboEstado.Items.Add("EN PROCESO");
+                        cboEstado.Items.Add("TERMINADO");
+                    }
                 }
             }
             catch

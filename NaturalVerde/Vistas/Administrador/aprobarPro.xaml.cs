@@ -31,6 +31,7 @@ namespace NaturalVerde.Vistas.Administrador
             txtServicio.IsEnabled = false;
             txtEquipo.IsEnabled = false;
             txtRut.IsEnabled = false;
+            cboEstado.IsEnabled = false;
 
 
         }
@@ -47,28 +48,33 @@ namespace NaturalVerde.Vistas.Administrador
             int resp = 0;
             NaturalWSClient cliente = new NaturalWSClient();
             proyecto pro = new proyecto();
-            pro.nombre_Proyecto = cboProyecto.Text;
-            pro.servicio = txtServicio.Text;
-            pro.estado = cboEstado.Text;
-            pro.rutCliente = txtRut.Text;
-            pro.nombre_Equipo = txtEquipo.Text;
+            pro.nombre_Proyecto = cboProyecto.Text.ToUpper();
+            pro.servicio = txtServicio.Text.ToUpper();
+            pro.estado = cboEstado.Text.ToUpper();
+            pro.rutCliente = txtRut.Text.ToUpper();
+            pro.nombre_Equipo = txtEquipo.Text.ToUpper();
 
-            if (cliente.estadoProyecto(pro))
+            if (cboEstado.Text.Equals(""))
             {
-                resp = 1;
-                await this.ShowMessageAsync("Exito", "PROYECTO CAMBIO ESTADO A "+ pro.estado);
-                Console.WriteLine(resp);
+                await this.ShowMessageAsync("Advertencia", "No puede Actualizar Estado si no Carga Proyecto");
             }
             else
             {
-                await this.ShowMessageAsync("Error", "No se pudo cambiar Estado");
-                Console.WriteLine(resp);
+                if (cliente.estadoProyecto(pro))
+                {
+                    resp = 1;
+                    await this.ShowMessageAsync("EXITO", "PROYECTO CAMBIO ESTADO A " + pro.estado);
+                    proyectoSoli solicitud = new proyectoSoli();
+                    solicitud.Show();
+                    this.Close();
+
+                }
+                else
+                {
+                    await this.ShowMessageAsync("ERROR", "NO SE PUDO CAMBIAR ESTADO");
+                }
             }
             
-
-
-
-
         }
 
 
@@ -80,18 +86,27 @@ namespace NaturalVerde.Vistas.Administrador
             List<proyecto> proyecto = null;
             txtServicio.IsEnabled = false;
             txtEquipo.IsEnabled = false;
+            cboEstado.IsEnabled = true;
 
             try
             {
-                txtServicio.Text = "";
-                txtEquipo.Text = "";
-                proyecto = cliente.detalleProyecto(NombreProyecto).ToList();
-                foreach (var item in proyecto)
+                if (cboProyecto.Text.Equals(""))
                 {
-                    txtServicio.Text = item.servicio;
-                    txtEquipo.Text = item.nombre_Equipo;
-                    cboEstado.Text = item.estado;
+                    await this.ShowMessageAsync("Error", "Porfavor Seleccione un Proyecto");
                 }
+                else
+                {
+                    txtServicio.Text = "";
+                    txtEquipo.Text = "";
+                    proyecto = cliente.detalleProyecto(NombreProyecto).ToList();
+                    foreach (var item in proyecto)
+                    {
+                        txtServicio.Text = item.servicio;
+                        txtEquipo.Text = item.nombre_Equipo;
+                        cboEstado.Text = item.estado;
+                    }
+                }
+
             } catch
             {
                 await this.ShowMessageAsync("Error", "Nombre de Proyecto en Blanco");

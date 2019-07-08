@@ -32,7 +32,7 @@
         <ListBox x:Name="lsFecha" HorizontalAlignment="Left" Height="155" Margin="168,290,0,0" VerticalAlignment="Top" Width="100"/>
 
         <!-- BOTON VOLVER -->
-        <Controls:Tile x:Name="btnVolver" BorderThickness="2" Title="Volver" FontFamily="Segoe UI Semibold" Foreground="White" Margin="663,500,62.2,23.2" Width="Auto" Height="Auto" BorderBrush="Gray" Click="BtnVolver_Click" RenderTransformOrigin="0.759,0.341">
+        <Controls:Tile x:Name="btnVolver" BorderThickness="2" Title="Volver" FontFamily="Segoe UI Semibold" Foreground="White" Margin="663,500,62.2,18.2" Width="Auto" Height="Auto" BorderBrush="Gray" Click="BtnVolver_Click" RenderTransformOrigin="0.759,0.341">
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="3" ShadowDepth="3"/>
             </Controls:Tile.Effect>
@@ -51,7 +51,7 @@
         <ComboBox x:Name="cboProyecto" HorizontalAlignment="Left" Margin="276,194,0,0" VerticalAlignment="Top" Width="198"/>
         <Label x:Name="lblRut" Content="Ingrese Rut Cliente" HorizontalAlignment="Left" Margin="276,92,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Semibold" FontSize="20" Width="196"/>
         <TextBox x:Name="txtRut" TextAlignment="Center" HorizontalAlignment="Left" Height="23" Margin="276,129,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="196"/>
-        <Button x:Name="btnComprobar" Content="Comprobar" HorizontalAlignment="Left" Margin="491,126,0,0" VerticalAlignment="Top" Width="95" Click="BtnComprobar_Click"/>
+        <Button x:Name="btnComprobar" Content="Comprobar" HorizontalAlignment="Left" Margin="491,129,0,0" VerticalAlignment="Top" Width="95" Click="BtnComprobar_Click"/>
         <Button x:Name="btnSeleccionar" Content="Seleccionar" HorizontalAlignment="Left" Margin="491,191,0,0" VerticalAlignment="Top" Width="95" Click="BtnSeleccionar_Click"/>
 
         <!-- SELECCIONAR PROYECTO -->

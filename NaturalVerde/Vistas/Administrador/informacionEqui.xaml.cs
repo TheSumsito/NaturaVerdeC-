@@ -38,19 +38,26 @@ namespace NaturalVerde.Vistas.Administrador
         private async void BtnComprobar_Click(object sender, RoutedEventArgs e)
         {
             NaturalWSClient cliente = new NaturalWSClient();
-            String rutcliente = txtRut.Text;
+            String rutcliente = txtRut.Text.ToUpper();
 
             List<proyecto> proyecto = null;
 
             try
             {
-                cboProyecto.Items.Clear();
-                proyecto = cliente.buscarProyecto(rutcliente).ToList();
-                foreach (var item in proyecto)
+                if (txtRut.Text.Equals(""))
                 {
-                    cboProyecto.Items.Add(item.nombre_Proyecto);
+                    await this.ShowMessageAsync("Error", "Porfavor Ingrese Rut del Cliente");
                 }
-                await this.ShowMessageAsync("Exito", "Proyectos Encontrados");
+                else
+                {
+                    cboProyecto.Items.Clear();
+                    proyecto = cliente.buscarProyecto(rutcliente).ToList();
+                    foreach (var item in proyecto)
+                    {
+                        cboProyecto.Items.Add(item.nombre_Proyecto);
+                    }
+                    await this.ShowMessageAsync("Exito", "Proyectos Encontrados");
+                }
             }
             catch
             {
@@ -65,17 +72,24 @@ namespace NaturalVerde.Vistas.Administrador
         private async void BtnSeleccionar_Click(object sender, RoutedEventArgs e)
         {
             NaturalWSClient cliente = new NaturalWSClient();
-            String rutcliente = txtRut.Text;
+            String rutcliente = txtRut.Text.ToUpper();
             List<proyecto> proyecto = null;
 
             try
             {
-                proyecto = cliente.buscarProyecto(rutcliente).ToList();
-                foreach (var item in proyecto)
+                if (cboProyecto.Text.Equals(""))
                 {
-                    txtEquipo.Text = item.nombre_Equipo;
+                    await this.ShowMessageAsync("Error", "Porfavor Seleccione un Proyecto");
                 }
-                await this.ShowMessageAsync("Exito", "Equipo Encontrado");
+                else
+                {
+                    proyecto = cliente.buscarProyecto(rutcliente).ToList();
+                    foreach (var item in proyecto)
+                    {
+                        txtEquipo.Text = item.nombre_Equipo;
+                    }
+                    await this.ShowMessageAsync("Exito", "Equipo Encontrado");
+                }
             }
             catch
             {
@@ -90,7 +104,7 @@ namespace NaturalVerde.Vistas.Administrador
         private async void BtnCargar_Click(object sender, RoutedEventArgs e)
         {
             NaturalWSClient cliente = new NaturalWSClient();
-            String equipo = txtEquipo.Text;
+            String equipo = txtEquipo.Text.ToUpper();
 
             List<trabajador> trabajador = null;
 

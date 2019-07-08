@@ -40,7 +40,7 @@ namespace NaturalVerde.Vistas.Administrador
             agregarHistorial agregar = new agregarHistorial();
             NaturalWSClient cliente = new NaturalWSClient();
 
-            String rutcliente = txtRut.Text;
+            String rutcliente = txtRut.Text.ToUpper();
             List<proyecto> proyecto = null;
 
             try
@@ -51,7 +51,7 @@ namespace NaturalVerde.Vistas.Administrador
                 {
                     agregar.cboProyecto.Items.Add(item.nombre_Proyecto);
                 }
-                agregar.txtRut.Text = txtRut.Text;
+                agregar.txtRut.Text = txtRut.Text.ToUpper();
                 agregar.Show();
                 this.Close();
             }
@@ -64,18 +64,25 @@ namespace NaturalVerde.Vistas.Administrador
         private async void BtnComprobar_Click(object sender, RoutedEventArgs e)
         {
             NaturalWSClient cliente = new NaturalWSClient();
-            String rutcliente = txtRut.Text;
+            String rutcliente = txtRut.Text.ToUpper();
             List<proyecto> proyecto = null;
 
             try
             {
-                cboProyecto.Items.Clear();
-                proyecto = cliente.buscarProyecto(rutcliente).ToList();
-                foreach (var item in proyecto)
+                if (txtRut.Text.Equals(""))
                 {
-                    cboProyecto.Items.Add(item.nombre_Proyecto);
+                    await this.ShowMessageAsync("Error", "Porfavor, Ingrese Rut del Cliente");
                 }
-                await this.ShowMessageAsync("Exito", "Proyectos Encontrados");
+                else
+                {
+                    cboProyecto.Items.Clear();
+                    proyecto = cliente.buscarProyecto(rutcliente).ToList();
+                    foreach (var item in proyecto)
+                    {
+                        cboProyecto.Items.Add(item.nombre_Proyecto);
+                    }
+                    await this.ShowMessageAsync("Exito", "Proyectos Encontrados");
+                }
             }
             catch
             {
@@ -90,24 +97,31 @@ namespace NaturalVerde.Vistas.Administrador
         private async void BtnSeleccionar_Click(object sender, RoutedEventArgs e)
         {
             NaturalWSClient cliente = new NaturalWSClient();
-            String nombreProyecto = cboProyecto.Text;
+            String nombreProyecto = cboProyecto.Text.ToUpper();
 
             List<historial> historial = null;
 
             try
             {
-                lsFase.Items.Clear();
-                lsDescripcion.Items.Clear();
-                lsFecha.Items.Clear();
-                lsEstado.Items.Clear();
-                historial = cliente.buscarHistorial(nombreProyecto).ToList();
-                foreach (var item in historial)
+                if (cboProyecto.Text.Equals(""))
                 {
-     
-                    lsFase.Items.Add(item.fase);
-                    lsDescripcion.Items.Add(item.descripcion);
-                    lsFecha.Items.Add(item.fecha);
-                    lsEstado.Items.Add(item.estado);
+                    await this.ShowMessageAsync("Error", "Porfavor Seleccione un Proyecto");
+                }
+                else
+                {
+                    lsFase.Items.Clear();
+                    lsDescripcion.Items.Clear();
+                    lsFecha.Items.Clear();
+                    lsEstado.Items.Clear();
+                    historial = cliente.buscarHistorial(nombreProyecto).ToList();
+                    foreach (var item in historial)
+                    {
+
+                        lsFase.Items.Add(item.fase);
+                        lsDescripcion.Items.Add(item.descripcion);
+                        lsFecha.Items.Add(item.fecha);
+                        lsEstado.Items.Add(item.estado);
+                    }
                 }
             }
             catch

@@ -41,25 +41,29 @@ namespace NaturalVerde.Vistas.Administrador
                 int Codigo = value;
                 insu.codInsumo = Codigo;
 
-                if (txtRut.Text.Equals(""))
+                if (cboProyecto.Text.Equals(""))
                 {
-                    await this.ShowMessageAsync("Advertencia", "Campo Rut en Blanco");
+                    await this.ShowMessageAsync("Advertencia", "Porfavor Seleccione un Proyecto");
+                }
+                else if (txtRut.Text.Equals(""))
+                {
+                    await this.ShowMessageAsync("Advertencia", "Porfavor Ingrese Rut del Cliente");
                 }
                 else if (txtDescripcion.Text.Equals(""))
                 {
-                    await this.ShowMessageAsync("Advertencia", "Campo Descripción en Blanco");
+                    await this.ShowMessageAsync("Advertencia", "Porfavor Ingrese una Descripcion");
                 }
                 else if (txtPrecio.Text.Equals(""))
                 {
-                    await this.ShowMessageAsync("Advertencia", "Campo Precio en Blanco");
+                    await this.ShowMessageAsync("Advertencia", "Porfavor Ingrese Precio del Producto");
                 }
                 else if (txtCantidad.Text.Equals(""))
                 {
-                    await this.ShowMessageAsync("Advertencia", "Campo Cantidad en Blanco");
+                    await this.ShowMessageAsync("Advertencia", "Porfavor Ingrese la Cantidad a Comprar del Producto");
                 }
                 else if(txtTienda.Text.Equals(""))
                 {
-                    await this.ShowMessageAsync("Advertencia", "Campo Tienda en Blanco");
+                    await this.ShowMessageAsync("Advertencia", "Porfavor Ingrese la Tienda a Comprar");
                 }
                 else
                 {
@@ -72,6 +76,9 @@ namespace NaturalVerde.Vistas.Administrador
                     if (cliente.agregarInsumo(insu))
                     {
                         await this.ShowMessageAsync("Exito", "Insumo ingresado Correctamente");
+                        insumosPro insumo = new insumosPro();
+                        insumo.Show();
+                        this.Close();
                     }
                     else
                     {

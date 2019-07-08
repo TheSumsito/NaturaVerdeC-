@@ -26,6 +26,7 @@ namespace NaturalVerde.Vistas.Administrador
         public horaSoli()
         {
             InitializeComponent();
+
         }
 
         private async void BtnAprobar_Click(object sender, RoutedEventArgs e)
@@ -34,7 +35,7 @@ namespace NaturalVerde.Vistas.Administrador
             NaturalWSClient cliente = new NaturalWSClient();
 
             List<proyecto> proyecto = null;
-            String rutcliente = txtRut.Text;
+            String rutcliente = txtRut.Text.ToUpper();
 
             try
             {
@@ -64,24 +65,31 @@ namespace NaturalVerde.Vistas.Administrador
         private async void BtnComprobar_Click(object sender, RoutedEventArgs e)
         {
             NaturalWSClient cliente = new NaturalWSClient();
-            String rutcliente = txtRut.Text;
+            String rutcliente = txtRut.Text.ToUpper();
 
             List<proyecto> proyecto = null;
 
             try
             {
-                proyecto = cliente.buscarProyecto(rutcliente).ToList();
-                cboProyecto.Items.Clear();
-                foreach (var item in proyecto)
+                if (txtRut.Text.Equals(""))
                 {
-                    cboProyecto.Items.Add(item.nombre_Proyecto);
+                    await this.ShowMessageAsync("Error", "Porfavor, Ingrese Rut del Cliente");
                 }
-                await this.ShowMessageAsync("Exito", "Proyectos Encontrados");
-                listId.Items.Clear();
-                listProyecto.Items.Clear();
-                listHora.Items.Clear();
-                listFecha.Items.Clear();
-                listEstado.Items.Clear();
+                else
+                {
+                    proyecto = cliente.buscarProyecto(rutcliente).ToList();
+                    cboProyecto.Items.Clear();
+                    foreach (var item in proyecto)
+                    {
+                        cboProyecto.Items.Add(item.nombre_Proyecto);
+                    }
+                    await this.ShowMessageAsync("Exito", "Proyectos Encontrados");
+                    listId.Items.Clear();
+                    listProyecto.Items.Clear();
+                    listHora.Items.Clear();
+                    listFecha.Items.Clear();
+                    listEstado.Items.Clear();
+                }
             }
             catch(System.Exception ex)
             {
@@ -100,32 +108,40 @@ namespace NaturalVerde.Vistas.Administrador
         private async void BtnSeleccionar_Click(object sender, RoutedEventArgs e)
         {
             NaturalWSClient cliente = new NaturalWSClient();
-            String NombreProyecto = cboProyecto.Text;
+            String NombreProyecto = cboProyecto.Text.ToUpper();
 
             List<solicitud> solicitud = null;
 
             try
             {
-                solicitud = cliente.detalleSolicitud(NombreProyecto).ToList();
-
-                listId.Items.Clear();
-                listProyecto.Items.Clear();
-                listHora.Items.Clear();
-                listFecha.Items.Clear();
-                listEstado.Items.Clear();
-
-                foreach (var item in solicitud)
+                if (cboProyecto.Text.Equals(""))
                 {
-                    listId.Items.Add(item.codSolicitud);
-                    listProyecto.Items.Add(item.nombre_Proyecto);
-                    listHora.Items.Add(item.hora);
-                    listFecha.Items.Add(item.fecha);
-                    listEstado.Items.Add(item.estado);
+                    await this.ShowMessageAsync("Advertencia", "Porfavor Seleccione un Proyecto");
                 }
+                else
+                {
+                    solicitud = cliente.detalleSolicitud(NombreProyecto).ToList();
+
+                    listId.Items.Clear();
+                    listProyecto.Items.Clear();
+                    listHora.Items.Clear();
+                    listFecha.Items.Clear();
+                    listEstado.Items.Clear();
+
+                    foreach (var item in solicitud)
+                    {
+                        listId.Items.Add(item.codSolicitud);
+                        listProyecto.Items.Add(item.nombre_Proyecto);
+                        listHora.Items.Add(item.hora);
+                        listFecha.Items.Add(item.fecha);
+                        listEstado.Items.Add(item.estado);
+                    }
+                }
+                
             }
             catch(System.Exception ex)
             {
-                await this.ShowMessageAsync("Error", "Nombre de Proyecto en Blanco");
+                await this.ShowMessageAsync("Error", "No hay Solicitud a Terreno Existente para ese Proyecto");
                 listId.Items.Clear();
                 listProyecto.Items.Clear();
                 listHora.Items.Clear();

@@ -16,19 +16,19 @@
 
         <!-- DESCRIPCION DEL PRODUCTO -->
         <Label x:Name="lblDescripcion" Content="Descripcion del Insumo" HorizontalAlignment="Left" Margin="136,222,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Semibold" FontSize="20"/>
-        <TextBox x:Name="txtDescripcion" HorizontalAlignment="Left" Height="23" Margin="144,263,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="211"/>
+        <TextBox x:Name="txtDescripcion" TextAlignment="Center" HorizontalAlignment="Left" Height="23" Margin="144,263,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="211"/>
 
         <!-- PRECIO DEL PRODUCTO -->
         <Label x:Name="lblPrecio" Content="Ingrese Precio" HorizontalAlignment="Left" Margin="459,220,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Semibold" FontSize="20"/>
-        <TextBox x:Name="txtPrecio" HorizontalAlignment="Left" Height="23" Margin="464,263,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="211"/>
+        <TextBox x:Name="txtPrecio" TextAlignment="Center" HorizontalAlignment="Left" Height="23" Margin="464,263,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="211"/>
 
         <!-- CANTIDAD A COMPRAR -->
         <Label x:Name="lblCantidad" Content="Ingrese Cantidad" HorizontalAlignment="Left" Margin="137,306,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.405,0.31" FontFamily="Segoe UI Semibold" FontSize="20"/>
-        <TextBox x:Name="txtCantidad" HorizontalAlignment="Left" Height="23" Margin="144,346,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="211"/>
+        <TextBox x:Name="txtCantidad" TextAlignment="Center" HorizontalAlignment="Left" Height="23" Margin="144,346,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="211"/>
 
         <!-- TIENDA DEL PRODUCTO -->
         <Label x:Name="lblTienda" Content="Ingrese Tienda" HorizontalAlignment="Left" Margin="461,301,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Semibold" FontSize="20"/>
-        <TextBox x:Name="txtTienda" HorizontalAlignment="Left" Height="23" Margin="465,345,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="211"/>
+        <TextBox x:Name="txtTienda" TextAlignment="Center" HorizontalAlignment="Left" Height="23" Margin="465,345,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="211"/>
 
         <!-- BOTON (AGREGAR PRODUCTO) -->
         <Controls:Tile x:Name="btnAgregar" BorderThickness="2" Title="Agregar Producto" FontFamily="Segoe UI Semibold" Foreground="White" Margin="144,411,480.6,75" Width="Auto" Height="Auto" BorderBrush="Gray" RenderTransformOrigin="0.486,0.108" Click="BtnAgregar_Click">

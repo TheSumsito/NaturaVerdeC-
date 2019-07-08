@@ -8,7 +8,7 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:NaturalVerde.Vistas.Administrador"
         mc:Ignorable="d"
-        Title="aprobarHist" Height="621.3" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Aprobar Requerimiento" Height="621.3" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
 
         <!-- TITULO -->

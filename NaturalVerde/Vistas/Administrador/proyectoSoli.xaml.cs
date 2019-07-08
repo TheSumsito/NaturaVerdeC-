@@ -35,7 +35,7 @@ namespace NaturalVerde.Vistas.Administrador
             NaturalWSClient cliente = new NaturalWSClient();
 
             List<proyecto> proyecto = null;
-            String rutcliente = txtRut.Text;
+            String rutcliente = txtRut.Text.ToUpper();
             
             try
             {
@@ -64,26 +64,33 @@ namespace NaturalVerde.Vistas.Administrador
         private async void BtnSeleccionar_Click(object sender, RoutedEventArgs e)
         {
             NaturalWSClient cliente = new NaturalWSClient();
-            String RutCliente = txtRut.Text;
+            String RutCliente = txtRut.Text.ToUpper();
             List<proyecto> proyecto = null;
 
             try
             {
-                listNombre.Items.Clear();
-                listServicio.Items.Clear();
-                listEquipo.Items.Clear();
-                listEstado.Items.Clear();
-                proyecto = cliente.buscarProyecto(RutCliente).ToList();
-                foreach (var item in proyecto)
+                if (txtRut.Text.Equals(""))
                 {
-                    listNombre.Items.Add(item.nombre_Proyecto);
-                    listServicio.Items.Add(item.servicio);
-                    listEquipo.Items.Add(item.nombre_Equipo);
-                    listEstado.Items.Add(item.estado);
-                    
+                    await this.ShowMessageAsync("Error", "Porfavor Ingrese Rut del Cliente");
                 }
+                else
+                {
+                    listNombre.Items.Clear();
+                    listServicio.Items.Clear();
+                    listEquipo.Items.Clear();
+                    listEstado.Items.Clear();
+                    proyecto = cliente.buscarProyecto(RutCliente).ToList();
+                    foreach (var item in proyecto)
+                    {
+                        listNombre.Items.Add(item.nombre_Proyecto);
+                        listServicio.Items.Add(item.servicio);
+                        listEquipo.Items.Add(item.nombre_Equipo);
+                        listEstado.Items.Add(item.estado);
 
-                await this.ShowMessageAsync("Exito", "Proyecto Encontrado");
+                    }
+
+                    await this.ShowMessageAsync("Exito", "Proyecto Encontrado");
+                }
             }
             catch (System.Exception ex)
             {

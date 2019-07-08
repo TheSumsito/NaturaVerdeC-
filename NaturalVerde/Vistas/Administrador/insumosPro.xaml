@@ -41,7 +41,7 @@
 
         <!-- TOTAL A PAGAR -->
         <Label x:Name="lblTotal" Content="Total a Pagar: " HorizontalAlignment="Left" Margin="314,463,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Semibold" FontSize="20"/>
-        <TextBox x:Name="txtTotal" HorizontalAlignment="Left" Height="23" Margin="487,473,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="260" IsEnabled="False"/>
+        <TextBox x:Name="txtTotal" TextAlignment="Center" HorizontalAlignment="Left" Height="23" Margin="487,473,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="260"/>
 
         <!-- BOTON VOLVER -->
         <Controls:Tile x:Name="btnVolver" BorderThickness="2" Title="Volver" FontFamily="Segoe UI Semibold" Foreground="White" Margin="882,513,62.8,32" Width="Auto" Height="Auto" BorderBrush="Gray" Click="BtnVolver_Click">

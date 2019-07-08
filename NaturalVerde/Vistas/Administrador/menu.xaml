@@ -13,21 +13,21 @@
         <!-- BOTON (BUSCAR EQUIPO) -->
 
         <!-- BOTON (SOLICITUDES) -->
-        <Controls:Tile x:Name="btnSolicitud" BorderThickness="2" Title="Solicitudes" FontFamily="Segoe UI Semibold" Foreground="White" Margin="79,41,413.6,250" Width="Auto" Height="Auto" BorderBrush="Gray" Click="BtnSolicitud_Click">
+        <Controls:Tile x:Name="btnSolicitud" BorderThickness="2" Title="Solicitudes" FontFamily="Segoe UI Semibold" Foreground="White" Margin="79,111,413.6,180" Width="Auto" Height="Auto" BorderBrush="Gray" Click="BtnSolicitud_Click">
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="3" ShadowDepth="3"/>
             </Controls:Tile.Effect>
         </Controls:Tile>
 
         <!-- BOTON (MONITOREAR PROYECTO) -->
-        <Controls:Tile x:Name="btnMonitoreo" BorderThickness="2" Title="Monitorear Proyecto" FontFamily="Segoe UI Semibold" Foreground="White" Margin="421,38,71.6,253" Width="Auto" Height="Auto" BorderBrush="Gray" Click="BtnMonitoreo_Click">
+        <Controls:Tile x:Name="btnMonitoreo" BorderThickness="2" Title="Monitorear Proyecto" FontFamily="Segoe UI Semibold" Foreground="White" Margin="421,111,71.6,180" Width="Auto" Height="Auto" BorderBrush="Gray" Click="BtnMonitoreo_Click">
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="3" ShadowDepth="3"/>
             </Controls:Tile.Effect>
         </Controls:Tile>
 
         <!-- BOTON (CERRAR SESION) -->
-        <Controls:Tile x:Name="btnCerrar" BorderThickness="2" Title="Cerrar Sesion" FontFamily="Segoe UI Semibold" Foreground="White" Margin="630,229,73.6,109" Width="Auto" Height="Auto" BorderBrush="Gray" Click="BtnCerrar_Click">
+        <Controls:Tile x:Name="btnCerrar" BorderThickness="2" Title="Cerrar Sesion" FontFamily="Segoe UI Semibold" Foreground="White" Margin="632,288,71.6,50" Width="Auto" Height="Auto" BorderBrush="Gray" Click="BtnCerrar_Click">
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="3" ShadowDepth="3"/>
             </Controls:Tile.Effect>

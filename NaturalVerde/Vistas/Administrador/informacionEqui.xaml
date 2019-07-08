@@ -23,7 +23,7 @@
 
         <!-- NOMBRE EQUIPO-->
         <Label x:Name="lblEquipo" Content="Equipo a Terreno" HorizontalAlignment="Left" Margin="79,255,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Semibold" FontSize="20"/>
-        <TextBox x:Name="txtEquipo" HorizontalAlignment="Left" Height="23" Margin="80,300,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180" IsEnabled="False"/>
+        <TextBox x:Name="txtEquipo" TextAlignment="Center" HorizontalAlignment="Left" Height="23" Margin="80,300,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180" IsEnabled="False"/>
 
         <!-- NOMBRE PROYECTO -->
 

@@ -19,7 +19,7 @@
 
         <!-- CONTRASEÑA -->
         <Label x:Name="lblPass" Content="Contraseña:" HorizontalAlignment="Left" Margin="69,181,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Semibold"/>
-        <PasswordBox x:Name="txtPass" HorizontalAlignment="Left" Height="23" Margin="73,206,0,0" VerticalAlignment="Top" Width="179"/>
+        <PasswordBox x:Name="txtPass" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="23" Margin="73,206,0,0" VerticalAlignment="Top" Width="179"/>
         
         <!-- BOTON INGRESAR -->
         <Button x:Name="btnIngresar" Content="Ingresar" HorizontalAlignment="Left" Margin="123,271,0,0" VerticalAlignment="Top" Width="75" FontFamily="Segoe UI Semibold" Click="BtnIngresar_Click"/>

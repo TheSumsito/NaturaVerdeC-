@@ -8,7 +8,7 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:NaturalVerde.Vistas.Administrador"
         mc:Ignorable="d"
-        Title="proyectoSoli" Height="626.4" Width="883.415" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Solicitudes de Proyectos" Height="626.4" Width="883.415" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <!-- TITULO -->
         <Label x:Name="lblTitulo" Content="Proyectos Solicitados" HorizontalAlignment="Left" Margin="246,18,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Black" FontSize="36"/>
@@ -17,7 +17,7 @@
 
         <!-- NOMBRE PROYECTO-->
         <Label x:Name="lblNombre" Content="Nombre Proyecto" HorizontalAlignment="Left" Margin="91,185,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Semibold" FontSize="20" RenderTransformOrigin="0.458,0.793" Height="41"/>
-        <ListBox x:Name="listNombre" HorizontalAlignment="Left" Height="273" Margin="91,226,0,0" VerticalAlignment="Top" Width="170"/>
+        <ListBox x:Name="listNombre" HorizontalAlignment="Left" Height="266" Margin="91,232,0,0" VerticalAlignment="Top" Width="170"/>
 
         <!-- ESTADO -->
         <Label x:Name="lblEstado" Content="Estado" HorizontalAlignment="Left" Margin="700,185,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Semibold" FontSize="20" RenderTransformOrigin="0.374,0.638" Height="41"/>
